@@ -14,7 +14,7 @@ body {
 }
 
 .calc-box {
-    width: 47vh;
+    width: 45vh;
     height: 70vh;
     border: solid white 7px;
     outline: blue 9px solid;
@@ -57,7 +57,7 @@ body {
     padding: 5px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     border: solid blue 2px;
     border-radius: 5%;
     margin-top: 2px;
@@ -74,7 +74,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: grey;
+    color: rgb(107, 107, 107);
     font-size: 1.5em;
 }
 
