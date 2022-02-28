@@ -3,6 +3,7 @@ const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const evalBtn = document.querySelector('#eval');
 const ceBtn = document.querySelector('#ce');
+const delBtn = document.querySelector('.delete');
 let arr =[];
 let historyArr =[];
 let actual = document.querySelector('.result-actual');
@@ -40,6 +41,16 @@ class Calc {
         actual.innerHTML = 0;
         history.innerHTML = null;
     }
+
+    static myDelete() {
+        // let x = document.querySelector('.result-actual').innerHTML;
+        // let y = Array.from(x);
+        if (arr.length>1) {
+            actual.innerHTML =(String(arr)).replace(/,/g, '').slice(0,-1)
+            arr.pop()
+            console.log(arr)
+        }
+    }
 }
 
 numbers.forEach(number=> number.addEventListener('click', Calc.printActual));
@@ -49,6 +60,8 @@ operators.forEach(operator=> operator.addEventListener('click', Calc.printOperat
 evalBtn.addEventListener('click', Calc.myEval);
 
 ceBtn.addEventListener('click', Calc.myClear);
+
+delBtn.addEventListener('click', Calc.myDelete);
 
 
 
