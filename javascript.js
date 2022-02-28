@@ -14,7 +14,7 @@ class Calc {
     static printActual() {
         let newNumber = this.innerHTML;
         arr.push(newNumber);
-        actual.innerHTML = String(arr).replace(/,/g, '');
+        actual.innerText = getFormattedNumber(String(arr).replace(/,/g, ''));
         eval(String(arr).replace(/,/g, ''));
     }
     // 
@@ -31,7 +31,8 @@ class Calc {
             history.innerHTML = previous;
             //result
             let result = eval(String(arr).replace(/,/g, ''));
-            result===undefined?actual.innerHTML=0:actual.innerHTML = result;
+            result===undefined ? actual.innerHTML=0 :
+            actual.innerHTML = Number(result).toLocaleString('en');
             arr = [];
             arr.push(result);
         } 
@@ -41,21 +42,27 @@ class Calc {
         actual.innerHTML = 0;
         history.innerHTML = null;
     }
-
+    // 
     static myDelete() {
-        // let x = document.querySelector('.result-actual').innerHTML;
-        // let y = Array.from(x);
         if (arr.length>1) {
             actual.innerHTML =(String(arr)).replace(/,/g, '').slice(0,-1)
             arr.pop()
-            console.log(arr)
         }
     }
 }
 
+function getFormattedNumber(num) {
+    let n = Number(num);
+    let value = n.toLocaleString("en")
+    return value
+}
+
 numbers.forEach(number=> number.addEventListener('click', Calc.printActual));
+
 operators.forEach(operator=> operator.addEventListener('click', Calc.printOperator));
+
 evalBtn.addEventListener('click', Calc.myEval);
+
 ceBtn.addEventListener('click', Calc.myClear);
 
 delBtn.addEventListener('click', Calc.myDelete);
