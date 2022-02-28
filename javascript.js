@@ -54,11 +54,8 @@ class Calc {
 }
 
 numbers.forEach(number=> number.addEventListener('click', Calc.printActual));
-
 operators.forEach(operator=> operator.addEventListener('click', Calc.printOperator));
-
 evalBtn.addEventListener('click', Calc.myEval);
-
 ceBtn.addEventListener('click', Calc.myClear);
 
 delBtn.addEventListener('click', Calc.myDelete);
